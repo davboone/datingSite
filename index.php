@@ -1,3 +1,7 @@
+<!-- Author: David Boone
+    File: index.php
+    Date: 04/22/21
+-->
 <?php
 
 //This is my controller for the datingSite project
