@@ -1,0 +1,8 @@
+form > div > label{
+    font-weight: bold;
+}
+.alert{
+    height: 50%;
+    margin-top: 2rem;
+    text-align: center;
+}
