@@ -18,8 +18,12 @@ a{
 
 .btn{
     width: 10%;
+    position: absolute;
+    margin-left: 83%;
 }
-
+.btn a,.btn a:hover{
+    color: white;
+}
 label{
     font-weight: bold;
 }

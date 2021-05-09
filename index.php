@@ -35,6 +35,7 @@ $f3->route('GET|POST /personalInfo', function(){
         $_SESSION['age'] = $_POST['age'];
         $_SESSION['gender'] = $_POST['gender'];
         $_SESSION['phoneNum'] = $_POST['phoneNum'];
+        header("location: profile");
     }
 });
 
@@ -49,16 +50,20 @@ $f3->route('GET|POST /profile', function(){
         $_SESSION['state'] = $_POST['state'];
         $_SESSION['bio'] = $_POST['bio'];
         $_SESSION['seeking'] = $_POST['seeking'];
+        header("location: interests");
     }
 });
 
-$f3->route('GET /interests', function(){
+$f3->route('GET|POST /interests', function(){
 
     //Display the interests options
     $view = new Template();
     echo $view->render('views/interests.html');
-    $_SESSION['inDoor'] = $_POST['inDoor'];
-    $_SESSION['outDoor'] = $_POST['outDoor'];
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $_SESSION['interests'] = implode(", ", $_POST['interests']);
+        header("location: summary");
+    }
+
 });
 
 $f3->route('GET /summary', function(){
