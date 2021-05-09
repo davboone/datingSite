@@ -19,13 +19,14 @@
     <!-- nav bar -->
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">My Dating Website</a>
+            <a class="navbar-brand" href="{{ @BASE }}">My Dating Website</a>
         </div>
     </nav> <!-- end of navbar -->
     <h1>Profile</h1>
     <hr>
-    <div class="row justify-content-between">
-        <form class="col-12 col-sm-6">
+
+        <form method="post" class="row justify-content-between">
+            <div  class="col-12 col-sm-6">
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email" name="email" aria-describedby="email" placeholder="JohnDoe@yahoo.com">
@@ -89,20 +90,24 @@
             <div class="mb-3">
                 <label class="d-block">Seeking</label>
                 <div class="mb-3 form-check form-check-inline">
-                    <input type="radio" name="seeking" class="form-check-input" id="male">
+                    <input type="radio" name="seeking" class="form-check-input" id="male" value="Male">
                     <label class="form-check-label" for="male">Male</label>
                 </div>
                 <div class="mb-3 form-check form-check-inline">
-                    <input type="radio" name="seeking" class="form-check-input" id="female">
+                    <input type="radio" name="seeking" class="form-check-input" id="female" value="Female">
                     <label class="form-check-label" for="female">Female</label>
                 </div>
             </div>
+            </div>
+            <div class="mb-3 col-12 col-sm-6" id="rightSide">
+                <label for="bio" class="form-label">Biography</label>
+                <textarea class="form-control" id="bio" name="bio" rows="3"
+                          placeholder="Put what you want others to know about you here."></textarea>
+            </div>
+            <div class="row">
+            <button type="submit" value="interests" class="btn btn-primary"> Next ></button>
+            </div>
         </form>
-        <div class="mb-3 col-12 col-sm-6" id="rightSide">
-            <label for="bio" class="form-label">Biography</label>
-            <textarea class="form-control" id="bio" name="bio" rows="3"
-                      placeholder="Put what you want others to know about you here."></textarea>
-        </div>
-    </div>
+
 </body>
 </html>
