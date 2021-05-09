@@ -15,9 +15,14 @@ a{
 #bio{
     height: 10rem;
 }
-#rightSide label{
+
+.btn{
+    width: 10%;
+}
+
+label{
     font-weight: bold;
 }
-form > div > label{
-    font-weight: bold;
+#male,#female,.form-check-inline label{
+    font-weight:normal;
 }

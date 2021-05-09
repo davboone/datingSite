@@ -25,7 +25,7 @@ $f3->route('GET /', function(){
 
 $f3->route('GET|POST /personalInfo', function(){
 
-    //Display the home page
+    //Display personal info form
     $view = new Template();
     echo $view->render('views/personalInfo.html');
 
@@ -40,7 +40,7 @@ $f3->route('GET|POST /personalInfo', function(){
 
 $f3->route('GET|POST /profile', function(){
 
-    //Display the home page
+    //Display the profile form
     $view = new Template();
     echo $view->render('views/profile.html');
 
@@ -52,19 +52,21 @@ $f3->route('GET|POST /profile', function(){
     }
 });
 
-//$f3->route('GET /', function(){
-//
-//    //Display the home page
-//    $view = new Template();
-//    echo $view->render('');
-//});
+$f3->route('GET /interests', function(){
 
-//$f3->route('GET /', function(){
-//
-//    //Display the home page
-//    $view = new Template();
-//    echo $view->render('');
-//});
+    //Display the interests options
+    $view = new Template();
+    echo $view->render('views/interests.html');
+    $_SESSION['inDoor'] = $_POST['inDoor'];
+    $_SESSION['outDoor'] = $_POST['outDoor'];
+});
+
+$f3->route('GET /summary', function(){
+
+    //Display the profile summary
+    $view = new Template();
+    echo $view->render('views/profileSummary.html');
+});
 
 //Run Fat-Free
 $f3->run();
