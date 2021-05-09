@@ -1,8 +1,23 @@
-form > div > label{
-    font-weight: bold;
+/*
+Author: David Boone
+Date: 5/8/21
+File: styles.css
+*/
+
+a{
+    text-decoration: none;
 }
 .alert{
     height: 50%;
     margin-top: 2rem;
     text-align: center;
+}
+#bio{
+    height: 10rem;
+}
+#rightSide label{
+    font-weight: bold;
+}
+form > div > label{
+    font-weight: bold;
 }

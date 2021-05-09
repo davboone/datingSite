@@ -38,12 +38,19 @@ $f3->route('GET|POST /personalInfo', function(){
     }
 });
 
-//$f3->route('GET /', function(){
-//
-//    //Display the home page
-//    $view = new Template();
-//    echo $view->render('');
-//});
+$f3->route('GET|POST /profile', function(){
+
+    //Display the home page
+    $view = new Template();
+    echo $view->render('views/profile.html');
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $_SESSION['email'] = $_POST['email'];
+        $_SESSION['state'] = $_POST['state'];
+        $_SESSION['bio'] = $_POST['bio'];
+        $_SESSION['seeking'] = $_POST['seeking'];
+    }
+});
 
 //$f3->route('GET /', function(){
 //
