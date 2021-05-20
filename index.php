@@ -9,8 +9,10 @@ session_start();
 ini_set('display_errors',1);
 error_reporting(E_ALL);
 
-//Require autoload file
+//Required files
 require_once ('vendor/autoload.php');
+require_once ('model/validation.php');
+require_once ('model/data-layer.php');
 
 //Instantiate Fat-Free
 $f3 = Base::instance();
@@ -54,7 +56,7 @@ $f3->route('GET|POST /profile', function(){
     }
 });
 
-$f3->route('GET|POST /interests', function(){
+$f3->route('GET|POST /interests', function($f3){
 
     //Display the interests options
     $view = new Template();
@@ -63,6 +65,10 @@ $f3->route('GET|POST /interests', function(){
         $_SESSION['interests'] = implode(", ", $_POST['interests']);
         header("location: summary");
     }
+
+    //get the data from the model
+    $f3->set("indoorInterests",indoorInterests());
+    $f3->set("outdoorInterests",outdoorInterests());
 
 });
 
