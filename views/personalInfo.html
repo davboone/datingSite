@@ -28,16 +28,28 @@
     <form method="post" class="col-12 col-sm-8">
         <div class="mb-3">
             <label for="firstName" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="firstName" name="firstName" aria-describedby="firstName" placeholder="John">
-
+            <input type="text" class="form-control" id="firstName" name="firstName" aria-describedby="firstName" placeholder="John" value="{{@fname}}">
+            <!-- display an error message if there is one -->
+            <check if="{{ isset(@errors['fname'])}}">
+                <span class="err">{{ @errors['fname']}}</span>
+            </check>
         </div>
         <div class="mb-3">
             <label for="lastName" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="lastName" name="lastName" aria-describedby="lastName" placeholder="Doe">
+            <input type="text" class="form-control" id="lastName" name="lastName" aria-describedby="lastName" placeholder="Doe" value="{{@lname}}">
+            <!-- display an error message if there is one -->
+            <check if="{{ isset(@errors['lname'])}}">
+                <span class="err">{{ @errors['lname']}}</span>
+            </check>
         </div>
         <div class="mb-3">
             <label for="age" class="form-label">Age</label>
-            <input type="text" class="form-control" id="age" name="age" aria-describedby="age" placeholder="42">
+            <input type="text" class="form-control" id="age" name="age" aria-describedby="age" placeholder="42" value="{{@age}}">
+
+            <!-- display an error message if there is one -->
+            <check if="{{ isset(@errors['age'])}}">
+                <span class="err">{{ @errors['age']}}</span>
+            </check>
         </div>
         <div class="mb-3">
             <label class="d-block">Gender</label>
@@ -46,13 +58,18 @@
                 <label class="form-check-label" for="male">Male</label>
             </div>
             <div class="mb-3 form-check form-check-inline">
-                <input type="radio" name="gender" class="form-check-input" id="female" value="Femail">
+                <input type="radio" name="gender" class="form-check-input" id="female" value="Female">
                 <label class="form-check-label" for="female">Female</label>
             </div>
         </div>
         <div class="mb-3">
             <label for="phoneNum" class="form-label">Phone Number</label>
-            <input type="text" class="form-control" id="phoneNum" name="phoneNum" aria-describedby="age" placeholder="555-555-5555">
+            <input type="text" class="form-control" id="phoneNum" name="phoneNum" aria-describedby="age" placeholder="555-555-5555" value="{{@phoneNum}}">
+
+            <!-- display an error message if there is one -->
+            <check if="{{ isset(@errors['phoneNum'])}}">
+                <span class="err">{{ @errors['phoneNum']}}</span>
+            </check>
         </div>
         <div class="row">
             <button type="submit" class="btn btn-primary">Next ></button>
