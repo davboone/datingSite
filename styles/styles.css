@@ -15,7 +15,9 @@ a{
 #bio{
     height: 10rem;
 }
-
+.border{
+    height: max-content;
+}
 .btn{
     width: 10%;
     position: absolute;
@@ -29,4 +31,12 @@ label{
 }
 #male,#female,.form-check-inline label{
     font-weight:normal;
+}
+#summaryBtn{
+    text-align: center;
+}
+#summaryBtn .btn{
+    position: static;
+    margin: 0;
+    width: max-content;
 }
