@@ -29,7 +29,12 @@
             <div  class="col-12 col-sm-6">
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" name="email" aria-describedby="email" placeholder="JohnDoe@yahoo.com">
+                <input type="email" class="form-control" id="email" name="email" aria-describedby="email" placeholder="JohnDoe@yahoo.com" value="{{@email}}">
+
+                <!-- display an error message if there is one -->
+                <check if="{{ isset(@errors['email']) }}">
+                    <span class="err">{{ @errors['email']}}</span>
+                </check>
             </div>
             <div class="mb-3">
                 <label for="state" class="form-label">State</label>
