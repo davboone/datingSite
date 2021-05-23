@@ -11,7 +11,7 @@ function validName($name)
 
 function validAge($age)
 {
-    return (18 < $age) && ($age < 118);
+    return (18 <= $age) && ($age < 118);
 }
 function validPhone($phoneNum)
 {
@@ -19,16 +19,33 @@ function validPhone($phoneNum)
 
     return strlen($filterNum) == 10;
 }
-function validEmail()
+function validEmail($email)
 {
-
+    $email = filter_var($email,FILTER_SANITIZE_EMAIL);
+    return filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 
-function validOutdoor()
+function validOutdoor($interest)
 {
+    $validOutdoor = outdoorInterests();
+    foreach ($interest as $userChoice) {
+        if (!in_array($userChoice, $validOutdoor)) {
+            return false;
+        }
+    }
 
+    //All choices are valid
+    return true;
 }
-function validIndoor()
+function validIndoor($interest)
 {
+    $validIndoor = indoorInterests();
+    foreach ($interest as $userChoice) {
+        if (!in_array($userChoice, $validIndoor)) {
+            return false;
+        }
+    }
 
+    //All choices are valid
+    return true;
 }
