@@ -37,8 +37,9 @@
         <p class="px-3">State: {{@SESSION.member->getState()}}</p>
         <hr>
         <p class="px-3">Seeking: {{@SESSION.member->getSeeking()}}</p>
-        <hr>
-        <check if={{!empty(@SESSION.premiumChoice)}}>
+
+        <check if="{{ @SESSION.member instanceOf PremiumMember }}">
+            <hr>
             <p class="px-3">Interests: {{@SESSION.member->getInDoorInterests()}}, {{@SESSION.member->getOutDoorInterests()}}</p>
         </check>
 
@@ -46,7 +47,7 @@
     <div class="col-12 col-sm-6">
         <img src="images/headSilhoutte.png" alt="Silhouette of a head">
         <p>Biography</p>
-        <p>{{@SESSION.member->getBio}}</p>
+        <p>{{@SESSION.member->getBio()}}</p>
     </div>
     </div>
     <div id="summaryBtn">

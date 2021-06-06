@@ -41,11 +41,7 @@ $f3->route('GET|POST /profile', function($f3){
 $f3->route('GET|POST /interests', function(){
 
 
-    if(!empty($_SESSION['premiumChoice'])){
-        $GLOBALS['con']->interests();
-    } else {
-        $GLOBALS['con']->summary();
-    }
+    $GLOBALS['con']->interests();
 
 });
 

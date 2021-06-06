@@ -86,12 +86,16 @@ class Controller
                 $this->_f3->set('errors["email"]','Please enter a valid email.');
             }
 
+            $_SESSION['choice'] = false;
             $_SESSION['member']->setState($_POST['state']);
             $_SESSION['member']->setBio($_POST['bio']);
             $_SESSION['member']->setSeeking($_POST['seeking']);
 
-            if(empty($this->_f3->get('errors'))){
+            if(empty($this->_f3->get('errors'))&&!empty($_SESSION['premiumChoice'])) {
+                $_SESSION['choice'] = true;
                 header("location: interests");
+            } else {
+                header("location: summary");
             }
 
         }
