@@ -1,6 +1,5 @@
 <?php
-//start session
-session_start();
+
 //This is my controller for the datingSite project
 
 
@@ -11,69 +10,26 @@ error_reporting(E_ALL);
 
 //Required files
 require_once ('vendor/autoload.php');
-require_once ('model/validation.php');
-require_once ('model/data-layer.php');
 
-//Instantiate Fat-Free
+//start session
+session_start();
+
+//Instantiate classes
 $f3 = Base::instance();
+$con = new Controller($f3);
+$dataLayer = new DataLayer();
 
 //Define default route
 $f3->route('GET /', function(){
 
     //Display the home page
-    $view = new Template();
-    echo $view->render('views/home.html');
+    $GLOBALS['con']->home();
 });
 
-$f3->route('GET|POST /personalInfo', function($f3){
+$f3->route('GET|POST /personalInfo', function(){
 
-    $fname = $_POST['firstName'];
-    $lname = $_POST['lastName'];
-    $age = $_POST['age'];
-    $phoneNum = $_POST['phoneNum'];
+    $GLOBALS['con']->personalInfo();
 
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        if (validName($_POST['firstName'])){
-            $_SESSION['fName'] = $fname;
-        }
-        else{
-            $f3->set('errors["fname"]','Please enter a first name.');
-        }
-        if (validName($_POST['lastName'])){
-            $_SESSION['lname'] = $lname;
-        }
-        else{
-            $f3->set('errors["lname"]','Please enter a last name.');
-        }
-        if (validAge($_POST['age'])){
-            $_SESSION['age'] = $age;
-        }
-        else{
-            $f3->set('errors["age"]','Please enter an age. (18 & up)');
-        }
-        if (validPhone($_POST['phoneNum'])){
-            $_SESSION['phoneNum'] = $phoneNum;
-        }
-        else{
-            $f3->set('errors["phoneNum"]','Please enter a valid phone number.');
-        }
-
-        $f3->set('fname',$fname);
-        $f3->set('lname',$lname);
-        $f3->set('age',$age);
-        $f3->set('phoneNum',$phoneNum);
-
-        $_SESSION['gender'] = $_POST['gender'];
-
-        if(empty($f3->get('errors'))){
-            header("location: profile");
-        }
-
-    }
-
-    //Display personal info form
-    $view = new Template();
-    echo $view->render('views/personalInfo.html');
 });
 
 $f3->route('GET|POST /profile', function($f3){

@@ -2,17 +2,17 @@
 
 class Member
 {
-    private string $_fname;
-    private string $_lname;
-    private int $_age;
-    private string $_gender;
-    private string $_phone;
-    private string $_email;
-    private string $_state;
-    private string $_seeking;
-    private string $_bio;
+    private $_fname;
+    private $_lname;
+    private $_age;
+    private $_gender;
+    private $_phone;
+    private $_email;
+    private $_state;
+    private $_seeking;
+    private $_bio;
 
-    public function __construct($fname = "", $lname = "", $age = 0, $gender= "", $phone = "")
+    public function __construct($fname = "", $lname = "", $age = "", $gender= "", $phone = "")
     {
         $this->_fname = $fname;
         $this->_lname = $lname;

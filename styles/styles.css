@@ -32,6 +32,9 @@ label{
 #male,#female,.form-check-inline label{
     font-weight:normal;
 }
+#premiumLabel{
+    font-weight: normal;
+}
 #summaryBtn{
     text-align: center;
 }
