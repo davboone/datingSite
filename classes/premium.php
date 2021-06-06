@@ -2,8 +2,8 @@
 
 class PremiumMember extends Member
 {
-    private array $_inDoorInterests;
-    private array $_outDoorInterests;
+    private $_inDoorInterests;
+    private $_outDoorInterests;
 
     public function __construct($fname = "", $lname = "", $age = 0, $gender = "", $phone = "")
     {
@@ -85,7 +85,7 @@ class PremiumMember extends Member
     /**
      * @param string $phone
      */
-    public function setPhone(mixed $phone): void
+    public function setPhone(string $phone): void
     {
         parent::setPhone($phone);
     }
@@ -155,33 +155,33 @@ class PremiumMember extends Member
     }
 
     /**
-     * @return array
+     * @return string
      */
-    public function getInDoorInterests(): array
+    public function getInDoorInterests(): string
     {
         return $this->_inDoorInterests;
     }
 
     /**
-     * @param array $inDoorInterests
+     * @param string $inDoorInterests
      */
-    public function setInDoorInterests(array $inDoorInterests): void
+    public function setInDoorInterests(string $inDoorInterests): void
     {
         $this->_inDoorInterests = $inDoorInterests;
     }
 
     /**
-     * @return array
+     * @return string
      */
-    public function getOutDoorInterests(): array
+    public function getOutDoorInterests(): string
     {
         return $this->_outDoorInterests;
     }
 
     /**
-     * @param array $outDoorInterests
+     * @param string $outDoorInterests
      */
-    public function setOutDoorInterests(array $outDoorInterests): void
+    public function setOutDoorInterests(string $outDoorInterests): void
     {
         $this->_outDoorInterests = $outDoorInterests;
     }

@@ -32,7 +32,7 @@ class Validation
 
     static function validOutdoor($interest)
     {
-        $validOutdoor = outdoorInterests();
+        $validOutdoor = DataLayer::getOutdoorInterests();
         foreach ($interest as $userChoice) {
             if (!in_array($userChoice, $validOutdoor)) {
                 return false;
@@ -45,7 +45,7 @@ class Validation
 
     static function validIndoor($interest)
     {
-        $validIndoor = indoorInterests();
+        $validIndoor = DataLayer::getIndoorInterests();
         foreach ($interest as $userChoice) {
             if (!in_array($userChoice, $validIndoor)) {
                 return false;

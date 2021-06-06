@@ -24,26 +24,29 @@
     </nav> <!-- end of navbar -->
     <div class="row">
     <div class="border rounded col-12 col-sm-6 px-0">
-        <p class="px-3 pt-3">Name: {{@SESSION.fName}} {{@SESSION.lName}}</p>
+        <p class="px-3 pt-3">Name: {{@SESSION.member->getFName()}} {{@SESSION.member->getLName()}}</p>
         <hr>
         <p class="px-3">Gender: {{@SESSION.gender}}</p>
         <hr>
-        <p class="px-3">Age: {{@SESSION.age}}</p>
+        <p class="px-3">Age: {{@SESSION.member->getAge()}}</p>
         <hr>
-        <p class="px-3">Phone: {{@SESSION.phoneNum}}</p>
+        <p class="px-3">Phone: {{@SESSION.member->getPhone()}}</p>
         <hr>
-        <p class="px-3">Email: {{@SESSION.email}}</p>
+        <p class="px-3">Email: {{@SESSION.member->getEmail()}}</p>
         <hr>
-        <p class="px-3">State: {{@SESSION.state}}</p>
+        <p class="px-3">State: {{@SESSION.member->getState()}}</p>
         <hr>
-        <p class="px-3">Seeking: {{@SESSION.seeking}}</p>
+        <p class="px-3">Seeking: {{@SESSION.member->getSeeking()}}</p>
         <hr>
-        <p class="px-3">Interests: {{@SESSION.inDoor}}, {{@SESSION.outDoor}}</p>
+        <check if={{!empty(@SESSION.premiumChoice)}}>
+            <p class="px-3">Interests: {{@SESSION.member->getInDoorInterests()}}, {{@SESSION.member->getOutDoorInterests()}}</p>
+        </check>
+
     </div>
     <div class="col-12 col-sm-6">
         <img src="images/headSilhoutte.png" alt="Silhouette of a head">
         <p>Biography</p>
-        <p>{{@SESSION.bio}}</p>
+        <p>{{@SESSION.member->getBio}}</p>
     </div>
     </div>
     <div id="summaryBtn">

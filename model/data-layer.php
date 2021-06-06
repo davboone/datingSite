@@ -4,13 +4,13 @@
 //file used to send data to the views directory
 class DataLayer
 {
-    function indoorInterests()
+    static function getIndoorInterests()
     {
         return array("Tv", "Movies", "Cooking", "Board Games", "Puzzles", "Reading"
         , "Playing Cards", "Video Games");
     }
 
-    function outdoorInterests()
+    static function getOutdoorInterests()
     {
         return array("Hiking", "Biking", "Swimming", "Collecting", "Walking",
             "Climbing");
